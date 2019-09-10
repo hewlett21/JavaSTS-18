@@ -1,4 +1,5 @@
 package ru.enikhov;
+
 import java.util.Scanner;
 
 public class hotCold {
@@ -6,10 +7,10 @@ public class hotCold {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int range = 100;     //диапазон чисел
-        int fNum = 0; 		//первое введенное число
+        int fNum = 0;        //первое введенное число
         int number = (int) (Math.random() * range); // Загаданое число
         int prevDiff = 0;
-        String mess="";
+        String mess = "";
         System.out.println("Угадайте число от 0 до 100.");
         while (true) {
             int input = scanner.nextInt();
@@ -21,21 +22,19 @@ public class hotCold {
             //если введеное число < загаданного, то проверяем от 0 до загаданного числа.
             //если введеное число > загаданного, то проверяем от загаданного числа до 100.
             //
-            if (fNum==0) {
+            if (fNum == 0) {
                 if (input < number) {
-                    mess =(input <= (int) number / 2)?"Холодно":"Горячо";
+                    mess = (input <= (int) number / 2) ? "Холодно" : "Горячо";
                 } else {
-                    mess =(input <= ((int)(range-number)/2)+ number)?"Горячо":"Холодно";
+                    mess = (input <= ((int) (range - number) / 2) + number) ? "Горячо" : "Холодно";
                 }
                 fNum = 1; //все последущие угадывания сравниваем разность по сравнению с прошлым числом
+            } else {
+                mess = (Math.abs(number - input) <= prevDiff) ? "Горячо" : "Холодно";
             }
-            else {
-                mess = (Math.abs(number - input) <= prevDiff)?"Горячо":"Холодно";
-            }
-            prevDiff = Math.abs(number-input);
+            prevDiff = Math.abs(number - input);
 
-//			System.out.println("Загадано: "+number+":	"+input+":	"+mess);
-            System.out.println("Ваше число: "+input+":	"+mess);
+            System.out.println("Ваше число: " + input + ":	" + mess);
             scanner.nextLine();
             System.out.println("Продолжить игру (1-да/0-нет)?");
             int exit = scanner.nextInt();
