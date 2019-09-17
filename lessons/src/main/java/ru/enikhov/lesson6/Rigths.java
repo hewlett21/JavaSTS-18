@@ -1,5 +1,6 @@
 package ru.enikhov.lesson6;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Rigths {
@@ -28,7 +29,7 @@ public class Rigths {
         return endDate;
     }
 
-    public Date getStartDate(Date date) {
+    public Date getStartDate() {
         return startDate;
     }
 
@@ -41,8 +42,10 @@ public class Rigths {
     }
 
     public String getRtDesc(Object objRt, Subjects subRt) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.YYYY");
         return "Объект права: " + objRt.getDesc() + "\nПравообладатель: " + subRt.getDescSubject() +
-                "\nНомер права: " + getRtNum() + "\nТип собственности: " + getRtType();
+                "\nНомер права: " + getRtNum() + "\nДата возникновения права: " + dateFormat.format(getStartDate()) +
+                "\nТип собственности: " + getRtType();
     }
 
 

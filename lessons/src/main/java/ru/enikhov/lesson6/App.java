@@ -30,7 +30,7 @@ public class App {
         Rigths rt = new Rigths();
         rt.setRtNum("21-21-01/001/2019-1");
         rt.setRtType("Право собственности");
-        rt.getStartDate(new Date());
+        rt.setStartDate(new Date());
 
         System.out.println(obj[0].getDesc()); //Описание земельного участка
         System.out.println("=================");
