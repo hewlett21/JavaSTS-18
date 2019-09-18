@@ -1,6 +1,6 @@
 package ru.enikhov.lesson6;
 
-public class Building extends Object {
+public class Building extends ReObject {
 
     private int floor; //кол-во этажей
 

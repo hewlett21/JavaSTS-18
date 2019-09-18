@@ -1,6 +1,6 @@
 package ru.enikhov.lesson6;
 
-public class Land extends Object {
+public class Land extends ReObject {
     private String catLand; //категория земель
 
     public void setCatLand(String catLand) {

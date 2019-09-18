@@ -5,7 +5,7 @@ import java.util.Date;
 public class App {
 
     public static void main(String[] args) {
-        Object[] obj = new Object[2];
+        ReObject[] obj = new ReObject[2];
 //Создаем земельный участок
         Land land = new Land();
         obj[0] = land;
@@ -39,7 +39,7 @@ public class App {
         System.out.println("=================");
         System.out.println("Субъект права: " + subj.getDescSubject()); //Описание правообладателя
         System.out.println("=================");
-        for (Object o : obj) {
+        for (ReObject o : obj) {
             System.out.println("Описание права\n" + rt.getRtDesc(o, subj)); //Описание права на объекты
         }
     }

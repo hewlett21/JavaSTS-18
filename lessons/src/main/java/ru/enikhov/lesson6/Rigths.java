@@ -41,7 +41,7 @@ public class Rigths {
         return rtNum;
     }
 
-    public String getRtDesc(Object objRt, Subjects subRt) {
+    public String getRtDesc(ReObject objRt, Subjects subRt) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.YYYY");
         return "Объект права: " + objRt.getDesc() + "\nПравообладатель: " + subRt.getDescSubject() +
                 "\nНомер права: " + getRtNum() + "\nДата возникновения права: " + dateFormat.format(getStartDate()) +

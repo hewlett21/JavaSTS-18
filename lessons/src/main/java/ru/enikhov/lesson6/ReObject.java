@@ -1,6 +1,6 @@
 package ru.enikhov.lesson6;
 
-public class Object {
+public class ReObject {
     private double sq;      //площадь объекта
     private String address; //адрес объекта
     private String cadNum;  // кадастровый номер объекта
