@@ -16,6 +16,6 @@ public class Convert {
         System.out.println(a.getNumAct());
         System.out.println(a.getDtAct());
         System.out.println(Arrays.toString(a.getProductAct()));
-        return new Act();
+        return a;
     }
 }
