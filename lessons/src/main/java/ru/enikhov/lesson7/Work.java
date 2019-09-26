@@ -15,6 +15,6 @@ public class Work {
     }
 
     int getRangeCount() {
-        return Arrays.asList(Drink.values()).size() - 1;
+        return Drink.values().length - 1;
     }
 }
