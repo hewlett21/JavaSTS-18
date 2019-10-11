@@ -9,6 +9,8 @@ public class App {
         //Выполняем действия как с файлами, так и с папками.
         //3 пункт меню ("Вывод структуры. Нажмите 3:") реализует дополнительное задание
         //вывода структуры каталогов с пробелами в зависимости от уровня.
+        //Класс MyFile для работы с файлами
+        //Класс MyFolder для работы с папками
         //создаем файловую систему.
         String[] dirList = {"testData/a/b/c/d", "testData/a/c/a/a", "testData/b/a/a", "testData/b/c/b", "testData/b/a/c/b"};
         String[] fileList = {"testData/a/1.txt", "testData/b/2.txt", "testData/b/a/3.txt", "testData/b/a/c/b/4.txt", "testData/a/b/c/d/5.txt"};
