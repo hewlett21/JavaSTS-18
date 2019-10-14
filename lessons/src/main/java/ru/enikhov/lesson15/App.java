@@ -28,8 +28,6 @@ public class App {
         }
         System.out.println("===Файловая система создана.");
 
-        System.out.printf("My name is: %18s%n", "joe");
-
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Выберите операции с папкой или с файлом:");
