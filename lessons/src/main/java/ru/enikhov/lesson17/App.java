@@ -143,6 +143,8 @@ public class App {
                 System.out.println("Укажите номер книги:");
                 int delNum = delBookScan.nextInt();
                 books = library.deleteBooks(books, delNum);
+//обновляем список книг в библиотеке, т.к. номера книг сдвинулись
+//после удаления
                 library.addBooks(books);
                 listBooks(library);
                 System.out.println("Нажмите <В> для выхода из меню добавления");
