@@ -11,6 +11,7 @@ public class App {
         Library library = new Library();
 
         System.out.println("< Меню Библиотека >");
+//считываем из файла menu.txt главное меню.
         File mainMenu = new File("menu.txt");
         Scanner menu = new Scanner(System.in);
         try (InputStream is = new FileInputStream(mainMenu);
@@ -21,34 +22,39 @@ public class App {
             }
             while (menu.hasNext()) {
                 String command = menu.next().toUpperCase();
-                switch (command) {
-                    case "Д":
-                        System.out.println("===> Добавляем книгу.");
-                        addBook(library);
-                        break;
-                    case "У":
-                        System.out.println("===> Удаляем книгу.");
-                        deleteBook(library);
-                        break;
-                    case "П":
-                        System.out.println("===> Поиск книги.");
-                        seekBook(library);
-                        break;
-                    case "С":
-                        listBooks(library);
-                        break;
-                    case "З":
-                        System.out.println("До новых встреч.");
-                        break;
-                    default:
-                        System.out.println("Неизвестная комманда. Попробуйте еще раз.");
-                }
+//Вызываем метод обработки выбранного пункта меню
+                cmdMainMenu(command, library);
                 if (command.equals("З")) {
                     break;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void cmdMainMenu(String command, Library library) {
+        switch (command) {
+            case "Д":
+                System.out.println("===> Добавляем книгу.");
+                addBook(library);
+                break;
+            case "У":
+                System.out.println("===> Удаляем книгу.");
+                deleteBook(library);
+                break;
+            case "П":
+                System.out.println("===> Поиск книги.");
+                seekBook(library);
+                break;
+            case "С":
+                listBooks(library);
+                break;
+            case "З":
+                System.out.println("До новых встреч.");
+                break;
+            default:
+                System.out.println("Неизвестная комманда. Попробуйте еще раз.");
         }
     }
 
@@ -63,24 +69,8 @@ public class App {
             System.out.println("> <В>ыход.");
             while (seekScan.hasNext()) {
                 String command = seekScan.next().toUpperCase();
-                switch (command) {
-                    case "А":
-                        System.out.println("Укажите автора:");
-                        library.seekBooksAuthor(getText(), books);
-                        break;
-                    case "Н":
-                        System.out.println("Укажите название:");
-                        library.seekBooksTitle(getText(), books);
-                        break;
-                    case "Т":
-                        System.out.println("Укажите тему:");
-                        library.seekBooksSubject(getText(), books);
-                        break;
-                    case "В":
-                        break;
-                    default:
-                        System.out.println("Неизвестная комманда. Попробуйте еще раз.");
-                }
+//вызываем метод обработки меню поиска
+                cmdSeekMenu(library, command);
                 if (command.equals("В")) {
                     System.out.println("===> Вышли из поиска.");
                     break;
@@ -89,6 +79,27 @@ public class App {
             }
         } else {
             System.out.println("Библиотека пустая. Нужно добавить книги.");
+        }
+    }
+
+    private static void cmdSeekMenu(Library library, String command) {
+        switch (command) {
+            case "А":
+                System.out.println("Укажите автора:");
+                library.seekBooksAuthor(getText(), books);
+                break;
+            case "Н":
+                System.out.println("Укажите название:");
+                library.seekBooksTitle(getText(), books);
+                break;
+            case "Т":
+                System.out.println("Укажите тему:");
+                library.seekBooksSubject(getText(), books);
+                break;
+            case "В":
+                break;
+            default:
+                System.out.println("Неизвестная комманда. Попробуйте еще раз.");
         }
     }
 
