@@ -31,7 +31,7 @@ public class Fact {
     }
 
 
-    public static void getDescription() {
+    public void getDescription() {
         System.out.println("Описание ресурса:");
         System.out.println("Bring meaning to your metrics and stories to your dates with our API of interesting number facts.");
         System.out.println("=================================================================================================");

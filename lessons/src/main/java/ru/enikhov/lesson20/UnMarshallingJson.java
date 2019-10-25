@@ -9,7 +9,7 @@ import java.net.URL;
 
 public class UnMarshallingJson {
     public static void main(String[] args) {
-        Fact.getDescription();
+        new Fact().getDescription();
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
