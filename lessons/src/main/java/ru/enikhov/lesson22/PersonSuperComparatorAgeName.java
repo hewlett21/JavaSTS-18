@@ -6,7 +6,7 @@ import java.util.Comparator;
 public class PersonSuperComparatorAgeName implements Comparator<Person> {
     @Override
     public int compare(Person o1, Person o2) {
-        int nameCompare = Integer.valueOf(o1.getAge()).compareTo(o2.getAge());
+        int nameCompare = o1.getAge() - o2.getAge();
         if (nameCompare != 0) {
             return nameCompare;
         } else {

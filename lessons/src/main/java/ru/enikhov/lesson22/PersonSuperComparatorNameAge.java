@@ -10,7 +10,7 @@ public class PersonSuperComparatorNameAge implements Comparator<Person> {
         if (nameCompare != 0) {
             return nameCompare;
         } else {
-            return Integer.valueOf(o1.getAge()).compareTo(o2.getAge());
+            return o1.getAge() - o2.getAge();
         }
     }
 }

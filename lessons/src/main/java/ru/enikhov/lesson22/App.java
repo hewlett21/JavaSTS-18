@@ -5,16 +5,8 @@ import java.util.*;
 public class App {
     public static void main(String[] args) {
         List<Person> persons = new ArrayList<>();
-        persons.add(new Person("Иван", 22));
-        persons.add(new Person("Петр", 22));
-        persons.add(new Person("Алиса", 18));
-        persons.add(new Person("Андрей", 19));
-        persons.add(new Person("Елена", 28));
-        persons.add(new Person("Андрей", 28));
-        persons.add(new Person("Семен", 35));
-        persons.add(new Person("Алексей", 35));
-        persons.add(new Person("Татьяна", 18));
-        persons.add(new Person("Елена", 25));
+        //заполняем коллекцию
+        addList(persons);
 
         printList(persons, "Первоначальный список :");
         int type = typeSort();// Выбираем тип сортировки
@@ -25,6 +17,19 @@ public class App {
             Collections.sort(persons, new PersonSuperComparatorNameAge());
         }
         printList(persons, "Список после сортировки:");
+    }
+
+    private static void addList(List<Person> persons) {
+        persons.add(new Person("Иван", 22));
+        persons.add(new Person("Петр", 22));
+        persons.add(new Person("Алиса", 18));
+        persons.add(new Person("Андрей", 19));
+        persons.add(new Person("Елена", 28));
+        persons.add(new Person("Андрей", 28));
+        persons.add(new Person("Семен", 35));
+        persons.add(new Person("Алексей", 35));
+        persons.add(new Person("Татьяна", 18));
+        persons.add(new Person("Елена", 25));
     }
 
     private static int typeSort() {
