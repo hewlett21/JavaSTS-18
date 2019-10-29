@@ -9,13 +9,8 @@ public class App {
         addList(persons);
 
         printList(persons, "Первоначальный список :");
-        int type = typeSort();// Выбираем тип сортировки
 
-        if (type == 2) {
-            Collections.sort(persons, new PersonSuperComparatorAgeName());
-        } else {
-            Collections.sort(persons, new PersonSuperComparatorNameAge());
-        }
+        Collections.sort(persons, typeSort());
         printList(persons, "Список после сортировки:");
     }
 
@@ -32,29 +27,26 @@ public class App {
         persons.add(new Person("Елена", 25));
     }
 
-    private static int typeSort() {
-        int sortType = 1;
+    private static Comparator<Person> typeSort() {
         System.out.println("Выберите сортировку:");
         System.out.println("По имени и возрасту. Нажмите 1.");
         System.out.println("По возрасту и имени. Нажмите 2.");
         try {
             Scanner scanner = new Scanner(System.in);
-            sortType = scanner.nextInt();
+            int sortType = scanner.nextInt();
             switch (sortType) {
                 case 1:
                     System.out.println("Сортируем по имени и возрасту:");
-                    break;
+                    return new PersonSuperComparatorNameAge();
                 case 2:
                     System.out.println("Сортируем по возрасту и имени:");
-                    break;
-                default:
-                    System.out.println("Сортировка по умолчанию (по имени и возрасту.):");
-                    sortType = 1;
+                    return new PersonSuperComparatorAgeName();
             }
         } catch (InputMismatchException e) {
             System.out.println("Нужно указать цифру.");
         }
-        return sortType;
+        System.out.println("Сортировка по умолчанию (по имени и возрасту.):");
+        return new PersonSuperComparatorNameAge();
     }
 
 
