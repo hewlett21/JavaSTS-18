@@ -5,7 +5,12 @@ import java.util.*;
 public class AppHashMap {
 
     public static void main(String[] args) {
-        removeTheDuplicates(createMap());
+        Map<String, Person> map = createMap();
+        System.out.println("Начальный список:");
+        printMap(map);
+        removeTheDuplicates(map);
+        System.out.println("\nПосле удаления дублей:");
+        printMap(map);
     }
 
     private static Map<String, Person> createMap() {
@@ -23,43 +28,20 @@ public class AppHashMap {
         return book;
     }
 
-    public static void removeTheDuplicates(Map<String, Person> map) {
-        System.out.println("Создаем TreeMap (для красоты вывода) ==============================");
+    private static void printMap(Map<String, Person> map) {
         Map<String, Person> treeMap = new TreeMap<>(map);
         System.out.println(treeMap.toString().replace(',', '\n'));
-
-        System.out.println("Создаем Map которые будем удалять ==================================");
-        Map<String, Person> delMap = new TreeMap<>(treeMap);
-        Iterator<Map.Entry<String, Person>> iterator = delMap.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry entry = iterator.next();
-            int cnt = Collections.frequency(delMap.values(), entry.getValue());
-            if (cnt == 1) {
-                iterator.remove();
-            }
-        }
-        System.out.println(delMap.toString().replace(',', '\n'));
-
-        //Выполняем удаление найденных дублей из копии исходной мапы
-        for (Map.Entry<String, Person> del : delMap.entrySet()) {
-            removeItemFromMapByValue(treeMap, del.getValue());
-        }
-        System.out.println("Оставшиеся записи в TreeMap ========================================");
-        System.out.println(treeMap.toString().replace(',', '\n'));
-
-        returnDeleted(treeMap, delMap);
     }
 
-    private static void returnDeleted(Map<String, Person> treeMap, Map<String, Person> delMap) {
-        System.out.println("Возвращаем в TreeMap каждый первый дубль обратно ====================");
-        Iterator<Map.Entry<String, Person>> it1 = delMap.entrySet().iterator();
-        while (it1.hasNext()) {
-            Map.Entry<String, Person> entry = it1.next();
-            if (!treeMap.containsValue(entry.getValue())) {
-                treeMap.put(entry.getKey(), entry.getValue());
+    public static void removeTheDuplicates(Map<String, Person> map) {
+        Map<String, Person> cloneMap = new HashMap<>(map);
+        for (Map.Entry<String, Person> entry : cloneMap.entrySet()) {
+            int cnt = Collections.frequency(cloneMap.values(), entry.getValue());
+            if (cnt > 1) {
+                removeItemFromMapByValue(map, entry.getValue());
+                map.put(entry.getKey(), entry.getValue());
             }
         }
-        System.out.println(treeMap.toString().replace(',', '\n'));
     }
 
 
