@@ -36,7 +36,7 @@ public class AppHashMap {
     public static void removeTheDuplicates(Map<String, Person> map) {
         Map<String, Person> cloneMap = new HashMap<>(map);
         for (Map.Entry<String, Person> entry : cloneMap.entrySet()) {
-            int cnt = Collections.frequency(cloneMap.values(), entry.getValue());
+            int cnt = Collections.frequency(map.values(), entry.getValue());
             if (cnt > 1) {
                 removeItemFromMapByValue(map, entry.getValue());
                 map.put(entry.getKey(), entry.getValue());
