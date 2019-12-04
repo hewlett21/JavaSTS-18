@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>255acd7f-06d1-495a-8eca-b05cefc73bbc.SCHEMA:postgres.public</OriginalElement>
+  <nodes>
+    <node x="-58.66751918158565" y="168.9156010230179">255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.emps</node>
+    <node x="88.5" y="400.0">255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.rights</node>
+    <node x="270.9444878811571" y="179.78655199374515">255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.objects</node>
+    <node x="87.0" y="0.0">255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.address</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.objects" target="255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.address">
+      <point x="0.0" y="-91.5" />
+      <point x="228.5" y="142.0" />
+      <point x="177.0" y="142.0" />
+      <point x="30.0" y="58.5" />
+    </edge>
+    <edge source="255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.rights" target="255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.emps">
+      <point x="-29.25" y="-91.5" />
+      <point x="117.75" y="375.0" />
+      <point x="65.5" y="375.0" />
+      <point x="0.0" y="91.5" />
+    </edge>
+    <edge source="255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.rights" target="255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.objects">
+      <point x="29.25" y="-91.5" />
+      <point x="176.25" y="375.0" />
+      <point x="228.5" y="375.0" />
+      <point x="0.0" y="91.5" />
+    </edge>
+    <edge source="255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.emps" target="255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.address">
+      <point x="0.0" y="-91.5" />
+      <point x="65.5" y="142.0" />
+      <point x="117.0" y="142.0" />
+      <point x="-30.0" y="58.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="153.00000000000006" y="185.5" />
+  <SelectedNodes>
+    <node>255acd7f-06d1-495a-8eca-b05cefc73bbc.TABLE:postgres.public.objects</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
