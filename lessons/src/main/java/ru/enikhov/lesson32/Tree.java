@@ -1,7 +1,7 @@
 package ru.enikhov.lesson32;
 
 class Tree {
-    public class Node {
+    private class Node {
         private int iData;
         private Node leftChild;
         private Node rightChild;
@@ -18,15 +18,11 @@ class Tree {
         }
 
         private boolean isLeaf() {
-            return leftChild != null | rightChild != null;
+            return leftChild == null && rightChild == null;
         }
     }
 
     private Node root;
-
-    public Node getRoot() {
-        return root;
-    }
 
     public Node find(int key) {
         if (root == null) {
@@ -80,16 +76,23 @@ class Tree {
         }
     }
 
+    public void print() {
+        print(root);
+    }
 
-    public int countLeaf(Node node) {
+
+    private int countLeaf(Node node) {
         int cnt = 1;
         if (node == null) {
             return 0;
         }
-        if (node.isLeaf()) {
+        if (!node.isLeaf()) {
             cnt = countLeaf(node.leftChild) + countLeaf(node.rightChild);
         }
         return cnt;
     }
 
+    public int countLeaf() {
+        return countLeaf(root);
+    }
 }
